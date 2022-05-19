@@ -7,10 +7,12 @@ import hello.core.member.Member;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemberServiceImpl;
 import hello.core.member.MemoryMemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor //final이 붙은 객체로 생성자를 만들어준다 - Lombok기능
 public class OrderServiceImpl implements OrderService{
 
     private final MemberRepository memberRepository; //final은 생성자 주입이기때문에 적절하게 사용가능
@@ -18,13 +20,15 @@ public class OrderServiceImpl implements OrderService{
 
 
 
-
+    /*
     //의존관계 생성자주입
-    @Autowired //생성자가 한개면 생락가능
+    //@Autowired //생성자가 한개면 생락가능
     public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
+
+     */
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
