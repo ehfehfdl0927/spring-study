@@ -2,6 +2,10 @@ package hello.core.discount;
 
 import hello.core.member.Grade;
 import hello.core.member.Member;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
+
+@Component //빈2개조회 충돌 상황을 테스트하기위해 두개 구현체 모두 component 등록(RateDiscountPolicy)
 
 public class FixDiscountPolicy implements DiscountPolicy{
 
