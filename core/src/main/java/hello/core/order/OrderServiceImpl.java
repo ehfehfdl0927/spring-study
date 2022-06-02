@@ -1,5 +1,6 @@
 package hello.core.order;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.discount.FixDiscountPolicy;
 import hello.core.discount.RateDiscountPolicy;
@@ -25,7 +26,7 @@ public class OrderServiceImpl implements OrderService{
     //의존관계 생성자주입
     //@Autowired //생성자가 한개면 생락가능
     //Autowired의 기능 중 같은 타입의 빈이 2개 이상 조회될 시에 빈의 파라미터 이름으로 조회하여 등록
-    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
         this.memberRepository = memberRepository;
         this.discountPolicy = discountPolicy;
     }
